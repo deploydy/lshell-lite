@@ -1,0 +1,8 @@
+configuration {
+    modi:                       "drun,run,filebrowser,window";
+    show-icons:                 true;
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono Nerd Font Bold 10";
+}
+
+@theme "~/.config/rofi/noctalia.rasi"
