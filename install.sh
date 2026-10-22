@@ -102,17 +102,17 @@ log_ok "System updated."
 
 log_info "Installing pacman packages..."
 sudo pacman -S --needed --noconfirm \
-    git autotiling swaybg swaync waybar kitty rofi swaylock \
+    git autotiling swaybg waybar kitty rofi \
     papirus-icon-theme ttf-fira-code ttf-jetbrains-mono-nerd \
     ttf-nerd-fonts-symbols ttf-font-awesome noto-fonts-emoji \
     gsimplecal wtype rofi-emoji dolphin bluez bluez-utils blueman \
-    nwg-displays fastfetch python python-pip nmap polkit-gnome \
+    nwg-displays fastfetch python python-pip polkit-gnome \
     python-cryptography python-requests python-beautifulsoup4 \
     python-rich wl-clipboard
 log_ok "Pacman packages installed."
 
 log_info "Installing AUR packages..."
-yay -S --needed --noconfirm waytrogen wlogout grim slurp
+yay -S --needed --noconfirm waypaper wlogout grim slurp
 log_ok "AUR packages installed."
 
 BUILD_DIR=$(mktemp -d)
