@@ -71,6 +71,17 @@ def save_json_config(data):
     with open(CONFIG_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
+def strip_box_shadow():
+    if not os.path.exists(STYLE_PATH):
+        return
+    with open(STYLE_PATH, "r", encoding="utf-8") as f:
+        css = f.read()
+    new_css = re.sub(r'(?m)^\s*box-shadow\s*:[^;]+;\s*\n?', '', css)
+    if new_css != css:
+        shutil.copy2(STYLE_PATH, STYLE_PATH + ".bak")
+        with open(STYLE_PATH, "w", encoding="utf-8") as f:
+            f.write(new_css)
+
 def change_color():
     color = input("  Enter hex color (e.g., #ffffff, #ff5555, #89b4fa): ").strip()
     if not re.match(r"^#[0-9a-fA-F]{6}$", color):
@@ -85,6 +96,7 @@ def change_color():
     if new_css == css:
         print("  [-] Could not find color property in style.css")
         return
+    shutil.copy2(STYLE_PATH, STYLE_PATH + ".bak")
     with open(STYLE_PATH, "w", encoding="utf-8") as f:
         f.write(new_css)
     reload_waybar()
@@ -96,6 +108,7 @@ def toggle_position():
     current = data.get("position", "top")
     data["position"] = "bottom" if current == "top" else "top"
     save_json_config(data)
+    strip_box_shadow()
     reload_waybar()
 
 def change_timezone():
@@ -120,6 +133,7 @@ def change_timezone():
     reload_waybar()
 
 def main():
+    strip_box_shadow()
     while True:
         clear_screen()
         print_centered_logo()
