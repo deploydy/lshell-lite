@@ -25,7 +25,7 @@ bindsym $mod+w exec waypaper
 bindsym $mod+period exec rofi -show emoji
 bindsym $mod+Shift+e exec wlogout --protocol layer-shell --layout /etc/wlogout/layout --css ~/.config/wlogout/style.css
 bindsym $mod+space floating toggle; resize set width 650 px height 450 px; move position center
-bindsym $mod+s exec kitty python3 $HOME/.config/lshell.py
+bindsym $mod+s exec kitty python3 $HOME/.config/lshell-lite.py
 bindsym $mod+p exec swaync-client -t -sw
 bindsym $mod+h exec kitty python3 $HOME/.config/netscan.py
 bindsym $mod+m exec kitty python3 $HOME/.config/passwords.py
