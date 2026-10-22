@@ -142,9 +142,9 @@ log_info "Removing old waybar config..."
 rm -rf ~/.config/waybar/config.jsonc
 log_ok "Old waybar config removed."
 
-log_info "Cloning lshell..."
+log_info "Cloning lshell-lite..."
 cd ~
-rm -rf "$HOME/lshell"
+rm -rf "$HOME/lshell-lite"
 git clone https://github.com/deploydy/lshell-lite
 log_ok "Repository cloned."
 
