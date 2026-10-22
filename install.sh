@@ -145,15 +145,15 @@ log_ok "Old waybar config removed."
 log_info "Cloning lshell..."
 cd ~
 rm -rf "$HOME/lshell"
-git clone https://github.com/deploydy/lshell
+git clone https://github.com/deploydy/lshell-lite
 log_ok "Repository cloned."
 
 log_info "Copying configs..."
 mkdir -p ~/.config
-cp -r ~/lshell/* ~/.config/
+cp -r ~/lshell-lite/* ~/.config/
 log_ok "Configs copied."
 
-rm -rf ~/lshell
+rm -rf ~/lshell-lite
 log_ok "Temporary directory removed."
 
 echo ""
