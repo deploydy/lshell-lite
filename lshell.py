@@ -10,11 +10,12 @@ CONFIG_PATH = os.path.expanduser("~/.config/waybar/config")
 STYLE_PATH = os.path.expanduser("~/.config/waybar/style.css")
 
 ASCII_LOGO = [
-    r"  _          _          _ _ ",
-    r" | |___  ___| |_  ___| | |",
-    r" | (_-< / _| ' \/ -_) | |",
-    r" |_/__/ \__|_||_\___|_|_|",
-    r"          L I T E        "
+    r"  _     ____  _   _ _____ _     _     ",
+    r" | |   / ___|| | | | ____| |   | |    ",
+    r" | |   \___ \| |_| |  _| | |   | |    ",
+    r" | |___ ___) |  _  | |___| |___| |___ ",
+    r" |_____|____/|_| |_|_____|_____|_____|",
+    r"              L I T E                  "
 ]
 
 def clear_screen():
