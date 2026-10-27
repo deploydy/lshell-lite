@@ -1,8 +1,159 @@
 configuration {
-    modi:                       "drun,run,filebrowser,window";
-    show-icons:                 true;
-    drun-display-format:        "{name}";
-    font:                       "JetBrainsMono Nerd Font Bold 10";
+    modi: "drun,run,window,filebrowser";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+
+    display-drun: "Apps";
+    display-run: "Commands";
+    display-window: "Windows";
+    display-filebrowser: "Files";
+
+    drun-display-format: "{name} <span alpha='50%' size='small'>{generic}</span>";
+    window-format: "{c}  {t}";
+
+    matching: "fuzzy";
+    sorting-method: "fzf";
+    sort: true;
+    case-sensitive: false;
+
+    cycle: true;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+    kb-mode-next: "Control+Tab,Shift+Right";
+    kb-mode-previous: "Control+Shift+Tab,Shift+Left";
 }
 
-@theme "~/.config/rofi/noctalia.rasi"
+* {
+    bg:        #1c1c1ed2;
+    border-c:  #ffffff26;
+    fg:        #ffffff;
+    fg-dim:    #8e8e93;
+    accent:    #0a84ff;
+
+    font: "Inter 11";
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    location: north;
+    anchor: north;
+    y-offset: 22%;
+    width: 460px;
+    background-color: transparent;
+    border: 0;
+}
+
+mainbox {
+    spacing: 8px;
+    children: [ inputbar, listview, mode-switcher ];
+}
+
+inputbar {
+    padding: 12px 18px;
+    spacing: 8px;
+    background-color: @bg;
+    border: 1px;
+    border-color: @border-c;
+    border-radius: 16px;
+    children: [ entry, num-filtered-rows, textbox-num-sep, num-rows ];
+}
+
+entry {
+    expand: true;
+    font: "Inter Medium 15";
+    placeholder: "Lshell Search";
+    placeholder-color: @fg-dim;
+    text-color: @fg;
+    cursor-color: @accent;
+    vertical-align: 0.5;
+}
+
+num-filtered-rows,
+num-rows,
+textbox-num-sep {
+    expand: false;
+    font: "Inter 10";
+    text-color: @fg-dim;
+    vertical-align: 0.5;
+}
+
+textbox-num-sep {
+    str: "/";
+}
+
+listview {
+    lines: 5;
+    columns: 1;
+    dynamic: true;
+    fixed-height: false;
+    scrollbar: false;
+    padding: 6px;
+    spacing: 2px;
+    background-color: @bg;
+    border: 1px;
+    border-color: @border-c;
+    border-radius: 16px;
+}
+
+element {
+    padding: 7px 10px;
+    spacing: 10px;
+    border-radius: 10px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: #0a84ff;
+    background-image: linear-gradient(to right, #0a84ff, #5e5ce6);
+    text-color: #ffffff;
+}
+
+element-icon {
+    size: 24px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+    markup: true;
+    highlight: bold #8e8e93;
+}
+
+element-text selected.normal {
+    highlight: bold #ffffffb3;
+}
+
+mode-switcher {
+    padding: 4px;
+    spacing: 4px;
+    background-color: @bg;
+    border: 1px;
+    border-color: @border-c;
+    border-radius: 14px;
+}
+
+button {
+    padding: 6px 8px;
+    font: "Inter 10";
+    background-color: transparent;
+    border: 0;
+    border-radius: 10px;
+    text-color: @fg-dim;
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: #ffffff24;
+    text-color: @fg;
+}
