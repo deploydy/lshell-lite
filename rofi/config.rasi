@@ -25,11 +25,12 @@ configuration {
 }
 
 * {
-    bg:        #1c1c1ed2;
-    border-c:  #ffffff26;
-    fg:        #ffffff;
-    fg-dim:    #8e8e93;
-    accent:    #0a84ff;
+    bg:        #1c1c1ee3;
+    line:      #ffffff1f;
+    frame:     #ffffffb8;
+    fg:        #f5f5f7;
+    fg-dim:    #a1a1a6;
+    accent:    #0a7aff;
 
     font: "Inter 11";
     background-color: transparent;
@@ -43,47 +44,41 @@ window {
     location: north;
     anchor: north;
     y-offset: 22%;
-    width: 460px;
-    background-color: transparent;
-    border: 0;
+    width: 410px;
+    background-color: @bg;
+    border: 1px;
+    border-color: @frame;
+    border-radius: 17px;
 }
 
 mainbox {
-    spacing: 8px;
+    spacing: 0;
     children: [ inputbar, listview, mode-switcher ];
 }
 
 inputbar {
-    padding: 12px 18px;
-    spacing: 8px;
-    background-color: @bg;
-    border: 1px;
-    border-color: @border-c;
-    border-radius: 16px;
-    children: [ entry, num-filtered-rows, textbox-num-sep, num-rows ];
+    padding: 12px 16px;
+    spacing: 10px;
+    border: 0 0 1px 0;
+    border-color: @line;
+    children: [ icon-search, entry ];
+}
+
+icon-search {
+    expand: false;
+    filename: "system-search-symbolic";
+    size: 19px;
+    vertical-align: 0.5;
 }
 
 entry {
     expand: true;
-    font: "Inter Medium 15";
+    font: "Inter 14";
     placeholder: "Lshell Search";
     placeholder-color: @fg-dim;
     text-color: @fg;
     cursor-color: @accent;
     vertical-align: 0.5;
-}
-
-num-filtered-rows,
-num-rows,
-textbox-num-sep {
-    expand: false;
-    font: "Inter 10";
-    text-color: @fg-dim;
-    vertical-align: 0.5;
-}
-
-textbox-num-sep {
-    str: "/";
 }
 
 listview {
@@ -94,16 +89,12 @@ listview {
     scrollbar: false;
     padding: 6px;
     spacing: 2px;
-    background-color: @bg;
-    border: 1px;
-    border-color: @border-c;
-    border-radius: 16px;
 }
 
 element {
-    padding: 7px 10px;
+    padding: 6px 10px;
     spacing: 10px;
-    border-radius: 10px;
+    border-radius: 9px;
 }
 
 element normal.normal,
@@ -113,8 +104,7 @@ element alternate.normal {
 }
 
 element selected.normal {
-    background-color: #0a84ff;
-    background-image: linear-gradient(to right, #0a84ff, #5e5ce6);
+    background-color: @accent;
     text-color: #ffffff;
 }
 
@@ -127,7 +117,7 @@ element-text {
     vertical-align: 0.5;
     text-color: inherit;
     markup: true;
-    highlight: bold #8e8e93;
+    highlight: bold #a1a1a6;
 }
 
 element-text selected.normal {
@@ -135,25 +125,22 @@ element-text selected.normal {
 }
 
 mode-switcher {
-    padding: 4px;
+    padding: 5px 6px;
     spacing: 4px;
-    background-color: @bg;
-    border: 1px;
-    border-color: @border-c;
-    border-radius: 14px;
+    border: 1px 0 0 0;
+    border-color: @line;
 }
 
 button {
-    padding: 6px 8px;
-    font: "Inter 10";
+    padding: 5px 7px;
+    font: "Inter Medium 10";
     background-color: transparent;
-    border: 0;
-    border-radius: 10px;
+    border-radius: 8px;
     text-color: @fg-dim;
     horizontal-align: 0.5;
 }
 
 button selected {
-    background-color: #ffffff24;
-    text-color: @fg;
+    background-color: #ffffff26;
+    text-color: #ffffff;
 }
